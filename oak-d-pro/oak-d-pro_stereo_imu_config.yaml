@@ -61,6 +61,7 @@ gyr_n: 0.01         # gyroscope measurement noise standard deviation.
 acc_w: 0.001        # accelerometer bias random work noise standard deviation.  
 gyr_w: 0.0001       # gyroscope bias random work noise standard deviation.     
 g_norm: 9.81007     # gravity magnitude
+# timeshift_cam_imu表示相机和IMU时间戳之间的时间间隔，以秒为单位（t_imu = t_cam + shift）.
 
 #unsynchronization parameters
 estimate_td: 1                      # online estimate time offset between camera and imu
