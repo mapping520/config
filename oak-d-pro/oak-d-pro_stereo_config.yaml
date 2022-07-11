@@ -20,6 +20,7 @@ image_height: 400
 estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
 
+# body_T_cam0 is the Inverse of cam0:T_cam_imu (Kalibr result),cam0:T_cam_imu表示IMU extrinsics，即从IMU到左相机坐标的转换（T_c_i）.
 body_T_cam0: !!opencv-matrix # Inverse of Kalibr result, (transpose for rotation matrix, T'=-R'T)
    rows: 4
    cols: 4
@@ -29,8 +30,9 @@ body_T_cam0: !!opencv-matrix # Inverse of Kalibr result, (transpose for rotation
            -0.02091607, -0.10857092, -0.99386864, -0.01419815,
            0, 0, 0, 1]
 
-#T_cn_cnm1: #T_c1_c0 : c0's points from c1's view 
+#T_cn_cnm1: #T_c1_c0 : c0's points from c1's view .T_cn_cnm1表示相机外在转换，即两个相机的转换关系（例如cam1：T_cn_cnm1 = T_c1_c0，将cam0转换为cam1坐标）
 
+# body_T_cam1 is the Inverse of cam1:T_cam_imu (Kalibr result),cam1:T_cam_imu表示IMU extrinsics，即从IMU到右相机坐标的转换（T_c_i）.
 body_T_cam1: !!opencv-matrix
    rows: 4
    cols: 4
